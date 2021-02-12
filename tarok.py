@@ -1,10 +1,10 @@
-fileigre = open("igre.txt", "r")
+fileigre = open("st. iger.txt", "r")
 
 fileigralci = []
 igre = []
 tocke =  []
 
-igralci = ["peter", "nace", "blaz", "gasper", "jernej", "klancar"]
+igralci = ["peter", "nace", "blaž", "gašper", "jernej", "klančar, mica, sadar"]
 for i in range(len(igralci)):
 	tocke.append([])
 	fileigralci.append(open(igralci[i] + ".txt", "r"))

@@ -50,14 +50,27 @@ DATA_TO_PULL = 'tocke'
 data = pull_sheet_data(SCOPES,SPREADSHEET_ID,DATA_TO_PULL)
 
 data1 = data[4:]
-columns = data[2][1:9] 
+imena = data[2][2:9] 
 
-print(columns)
+print(imena)
 tocke = []
+stIger = 0
 for line in data1:
     if line[1] == '':
         break
-    
-    tocke.append(line[1:9])
-    print(line[1:9])
+    stIger += 1
+    tocke.append(line[2:9])
+
+
+
+for i in range(7):
+    print(i, imena[i])
+    f = open(imena[i] + ".txt", "w")
+
+    for j in range(stIger):
+        f.write(tocke[j][i] + "\n")
+    f.close()
+
+
+
 
