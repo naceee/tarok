@@ -47,22 +47,21 @@ SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
 SPREADSHEET_ID = '1Cv9EgP-gcNYhTOR2O9DxDBdSoSLT0iBg5lDCvBdx51E'
 DATA_TO_PULL = 'tocke'
 
+#dobimo vse podatke
 data = pull_sheet_data(SCOPES,SPREADSHEET_ID,DATA_TO_PULL)
 
-data1 = data[4:]
-imena = data[2][2:9] 
-
-print(imena)
+# vzamemo tocke ven 
+dataTocke = data[4:]
+imena = ['igre', 'peter', 'nace', 'blaz', 'gasper', 'jernej', 'klancar']
 tocke = []
 stIger = 0
-for line in data1:
+for line in dataTocke:
     if line[1] == '':
         break
     stIger += 1
     tocke.append(line[2:9])
 
-
-
+# napisemo tocke v fajle z imeni
 for i in range(7):
     print(i, imena[i])
     f = open(imena[i] + ".txt", "w")
@@ -70,7 +69,5 @@ for i in range(7):
     for j in range(stIger):
         f.write(tocke[j][i] + "\n")
     f.close()
-
-
 
 
